@@ -35,6 +35,7 @@ digraph D {
     locobot_controller [!TOPIC!, label="locobot_controller"];
 
     dynamixel_controllers->locobot_controller;
+    dynamixel_controllers->robot_state_publisher;
 
   }
 
@@ -91,7 +92,10 @@ digraph D {
   odom_map_broadcaster->move_group;
   move_group->locobot_controller;
 
-
+  robot_state_publisher->move_base;
+  robot_state_publisher->move_group;
+  robot_state_publisher->pyrobot;
+  locobot_controller->robot_state_publisher;
   
   realsense2_camera_manager->move_group;
   locobot_controller->move_group;
